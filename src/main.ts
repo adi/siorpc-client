@@ -1,4 +1,5 @@
 import * as ioclient from 'socket.io-client';
+import { Promise } from 'es6-promise';
 
 export type ReturnFunction = (returnedValue: any, thrownException: any) => any;
 export type CodeFunction = (returnMethod: ReturnFunction, args: any[]) => void;
