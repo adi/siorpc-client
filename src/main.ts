@@ -40,7 +40,7 @@ export class SioRpcClient {
   }
   call(methodName: string, ...args: any[]): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.socket.emit(methodName, args, (returnedValueAndThrownException: ReturnedValueAndThrownException) => {
+      this.socket.emit('call', [methodName, ...args], (returnedValueAndThrownException: ReturnedValueAndThrownException) => {
         if (typeof returnedValueAndThrownException.thrownException !== 'undefined') {
           return reject(new RemoteError(returnedValueAndThrownException.thrownException));
         }
